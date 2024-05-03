@@ -10,12 +10,12 @@ The Bringg Python SDK provides a simple way to integrate the Bringg platform wit
 To install the Bringg Python SDK, simply run the following command:
 
 ```bash
-pip install bringg-sdk
+pip install bringg_sdk
 ```
 
 ## Getting Started
 
-To get started, you will need to create an account on the [Bringg platform](https://app.bringg.com/).
+To get started, you will need to have an account on the [Bringg fleet platform](https://fleet.bringg.com).
 Once you have created an account, you will need to generate an API key.
 
 ## API Reference
