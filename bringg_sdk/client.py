@@ -86,7 +86,16 @@ class BringgClient:
 
     def start_order(self, task_id: int, lat: float | None = None, lng: float | None = None,
                     reported_time_in_timestamp: int = None, delivery_cost_in_cents: int = None, green_delivery=True):
-
+        """
+        This endpoint is used to start an order. This is the first step in the delivery process.
+        :param task_id:
+        :param lat:
+        :param lng:
+        :param reported_time_in_timestamp:
+        :param delivery_cost_in_cents:
+        :param green_delivery:
+        :return:
+        """
         url = self.get_url('start_order')
 
         data = {
@@ -107,6 +116,15 @@ class BringgClient:
 
     def update_driver_location(self, user_external_id: str, lat: float, lng: float,
                                reported_time_in_timestamp: int = None, started_tasks: list = None):
+        """
+        This endpoint is used to update the driver's location.
+        :param user_external_id:
+        :param lat:
+        :param lng:
+        :param reported_time_in_timestamp:
+        :param started_tasks:
+        :return:
+        """
         url = self.get_url('update_driver_location')
         data = {
             "external_id": user_external_id,
@@ -124,6 +142,7 @@ class BringgClient:
     def check_in(self, task_id: int, lat: float, lng: float, reported_time_in_timestamp: int = None,
                  pickup_dropoff_option: str = None):
         """
+        This endpoint is used to check in the driver to the pickup or drop-off location.
         :param task_id: bringg order id
         :param lat: driver latitude
         :param lng: driver longitude
@@ -186,7 +205,7 @@ class BringgClient:
     def complete_order(self, task_id: int, lat: float = None, lng: float = None, reported_time_in_timestamp: int = None,
                        delivery_cost_in_cents: int = None):
         """
-
+        This endpoint is used to complete an order. This is the last step in the delivery process.
         :param task_id:
         :param lat:
         :param lng:
@@ -212,7 +231,7 @@ class BringgClient:
     def cancel_order(self, task_id: int, reason_id: int = 0, reason: str = None, lng: float = None,
                      lat: float = None, reported_time_in_timestamp: int = None):
         """
-
+        This endpoint is used to cancel an order.
         :param task_id: Bringg's unique ID for this order. Use either this field or task_external_id to identify the
                         relevant order.
         :param reason_id: MANDATORY: Bringg's reason ID for this order
